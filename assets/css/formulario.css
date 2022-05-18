@@ -1,0 +1,118 @@
+:root {
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --text-color-light: #3a3b3c;
+    --toggle-color: #DDD;
+    --text-color: #FFFFFF;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+.container {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+fieldset{
+    border: none;
+}
+
+legend{
+    border: 1px solid dodgerblue;
+    padding: 10px;
+    text-align: center;
+    background-color: dodgerblue;
+    border-radius: 8px;
+    color: var(--text-color-light);
+}
+.inputBox{
+    position: relative;
+}
+.inputUser{
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    outline: none;
+    color: var(--text-color-light);
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+.labelInput{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+}
+.inputUser:focus ~ .labelInput,
+.inputUser:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
+
+#data_nascimento{
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+#update{
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: block;
+}
+
+#submit{
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.btn:hover {
+    background: var(--text-color) !important;;
+    color: var(--primary-color) !important;;
+    border: 1px solid var(--primary-color) !important;;
+    padding: 9;
+}
+
+.GeneroDt{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.dtNascimento{
+    margin-left: 10%;
+}

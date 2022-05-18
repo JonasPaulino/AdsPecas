@@ -1,0 +1,51 @@
+:root {
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --text-color-light: #3a3b3c;
+    --toggle-color: #DDD;
+    --text-color: #FFFFFF;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 80px;
+    border-radius: 15px;
+    color: #fff;
+}
+input{
+    padding: 15px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+.btLogin{
+    background-color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    color: var(--primary-color);
+    font-size: 15px;
+    
+}
+.btLogin:hover{
+    background-color: #aea9eb;
+    color:  var(--text-color-light);
+    cursor: pointer;
+}
