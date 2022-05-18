@@ -8,12 +8,17 @@
 ✅ Validação de sessão <br><br>
 
 <h1>Algumas imagens do projeto</h1>
-assets/img/Cadastro.PNG
-<img src="./assets/img/login.PNG">
-<img src="./assets/img/dashboard.PNG">
-<img src="./assets/img/Cadastro.PNG">
-<img src="./assets/img/Excluir.PNG">
-<img src="./assets/img/Usuario.PNG">
+<h3>Tela de login</h3>
+<img src="./assets/img/login.PNG"> <br>
+<h3>Tela principal</h3>
+<img src="./assets/img/dashboard.PNG"> <br>
+<h3>Tela de cadastro de um usuário</h3>
+<img src="./assets/img/Cadastro.PNG"><br>
+<h3>Mensagem de delete em uma tabela</h3>
+<img src="./assets/img/Excluir.PNG"><br>
+<h3>Listagem de usuários</h3>
+<img src="./assets/img/Usuario.PNG"><br>
+<h3>Mensagem de logout</h3>
 <img src="./assets/img/Sair.PNG">
 
 <br/>
