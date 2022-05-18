@@ -8,11 +8,13 @@
 ✅ Validação de sessão <br><br>
 
 <h1>Algumas imagens do projeto</h1>
-<img src="./assets/img/login.png">
-<img src="./assets/img/dashboard.png">
-<img src="./assets/img/cadastro.png">
-<img src="./assets/img/excluir.png">
-<img src="./assets/img/sair.png">
+assets/img/Cadastro.PNG
+<img src="./assets/img/login.PNG">
+<img src="./assets/img/dashboard.PNG">
+<img src="./assets/img/Cadastro.PNG">
+<img src="./assets/img/Excluir.PNG">
+<img src="./assets/img/Usuario.PNG">
+<img src="./assets/img/Sair.PNG">
 
 <br/>
 <h1>Baixe e divirta-se</h1>
