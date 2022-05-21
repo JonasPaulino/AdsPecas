@@ -21,7 +21,37 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>    
+<body> 
+<?php
+        if(isset($_SESSION['msgSalvar'])){ 
+
+        function alerta($icone, $titulo, $messagem){ 
+            echo "<script type='text/JavaScript'> 
+                    Swal.fire({
+                        icon: '$icone',
+                        title: '$titulo',
+                        text: '$messagem',
+                        showConfirmButton: false,
+                        timer: 1600
+                    })
+                </script>";};
+
+        if($_SESSION['msgSalvar'] ==='SAL'){
+            alerta("success","Atualizado!","Cadastro atualizado com sucesso.");
+            unset($_SESSION['msgSalvar']); 
+        } else if($_SESSION['msgSalvar'] ==='DEL') {
+            alerta("success","Deletado!","O cadastro foi apagado com sucesso"); 
+            unset($_SESSION['msgSalvar']);   
+        } else if ($_SESSION['msgSalvar'] ==='ADD'){
+            alerta("success","Cadastrado!","O cadastro adicionado com sucesso!");
+            unset($_SESSION['msgSalvar']);             
+        } else {
+            alerta("info","Ops...!","Nenhum registro foi atualizado."); 
+            unset($_SESSION['msgSalvar']);    
+        }           
+        
+        };
+    ?>   
     <div class="container">
         <div style="display:flex;justify-content: space-between;margin-bottom: 20px;">
             <div>
@@ -35,7 +65,7 @@
             </div>
             <div style="width: 50%;" class="box-search">
                 <input style="flex: 1;" type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
-                <button style="margin-left:5px" onclick="searchData()" class="btn btn-primary">
+                <button style="margin-left:5px" onclick="searchData()" class="btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                     </svg>
@@ -81,23 +111,4 @@
     </div>
 </body>
 
-<script src="./assets/js/listaProdutos.js"></script>
-<script>
-    $('.btn-del').on('click', function(e){
-        e.preventDefault();
-        const href = $(this).attr('href')
-        Swal.fire({
-            title: 'Excluir?',
-            icon: 'question',
-            text: 'Deseja confirmar a exclusão deste produto?',
-            confirmButtonText: 'Confirmar',
-            cancelButtonText: 'Cancelar',
-            showCancelButton: true,
-            showCloseButton: true
-            }).then((result) =>{
-                if(result.value){
-                    document.location.href = href;
-                }
-            })
-    })
-</script>
+<script src="./assets/js/listaProdutos.js"></script>;

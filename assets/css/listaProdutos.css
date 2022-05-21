@@ -114,6 +114,7 @@ tbody {
     display: flex;
     border-radius: 5px;
     align-items: center;
+    border: none !important;
 }
 
 .btn:hover {

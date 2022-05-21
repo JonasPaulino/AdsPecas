@@ -116,3 +116,9 @@ legend{
 .dtNascimento{
     margin-left: 10%;
 }
+
+.titulo{
+    color: var(text-color-light) !important; 
+    font-family: Arial, Helvetica, sans-serif !important; 
+    text-align: center !important; 
+}

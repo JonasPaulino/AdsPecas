@@ -22,6 +22,35 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+<?php
+        if(isset($_SESSION['msgSalvar'])){
+        function alerta($icone, $titulo, $messagem){ 
+            echo "<script type='text/JavaScript'> 
+                    Swal.fire({
+                        icon: '$icone',
+                        title: '$titulo',
+                        text: '$messagem',
+                        showConfirmButton: false,
+                        timer: 1600
+                    })
+                </script>";};
+
+        if($_SESSION['msgSalvar'] ==='SAL'){
+            alerta("success","Atualizado!","Cadastro atualizado com sucesso.");
+            unset($_SESSION['msgSalvar']); 
+        } else if($_SESSION['msgSalvar'] ==='DEL') {
+            alerta("success","Deletado!","O cadastro foi apagado com sucesso"); 
+            unset($_SESSION['msgSalvar']);   
+        } else if ($_SESSION['msgSalvar'] ==='ADD'){
+            alerta("success","Cadastrado!","O cadastro adicionado com sucesso!");
+            unset($_SESSION['msgSalvar']);             
+        } else {
+            alerta("info","Ops...!","Nenhum registro foi atualizado."); 
+            unset($_SESSION['msgSalvar']);    
+        }           
+        
+        };
+    ?>
     <div class="container">
         <div style="display:flex;justify-content: space-between;margin-bottom: 20px;">
             <div>
@@ -92,24 +121,4 @@
         </table>
     </div>
 </body>
-
-<script src="./assets/js/listaUsuarios.js"></script>
-<script>
-    $('.btn-del').on('click', function(e){
-        e.preventDefault();
-        const href = $(this).attr('href')
-        Swal.fire({
-            title: 'Excluir?',
-            icon: 'question',
-            text: 'Deseja confirmar a exclusão deste usuário?',
-            confirmButtonText: 'Confirmar',
-            cancelButtonText: 'Cancelar',
-            showCancelButton: true,
-            showCloseButton: true
-            }).then((result) =>{
-                if(result.value){
-                    document.location.href = href;
-                }
-            })
-    })
-</script>
+ <script src="./assets/js/listaUsuarios.js"></script>;
