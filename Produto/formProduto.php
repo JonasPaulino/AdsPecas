@@ -1,14 +1,16 @@
 <?php
     session_start();
+    include_once('../conexao.php');
+
     if(isset($_POST['submit'])){
 
-        include_once('../conexao.php');
 
         $descricao          = $_POST['descricao'];
         $preco              = $_POST['preco'];
         $qtd_estoque        = $_POST['qtd_estoque'];
+        $id_fornecedor      = $_POST['fornecedor'];
 
-        $query = "INSERT INTO produto (descricao,preco,qtd_estoque) VALUES ( '$descricao', '$preco', '$qtd_estoque')";
+        $query = "INSERT INTO produto (descricao,preco,qtd_estoque,id_fornecedor) VALUES ( '$descricao', '$preco', '$qtd_estoque', '$id_fornecedor')";
 
         $result = mysqli_query($conn, $query);
 
@@ -19,12 +21,17 @@
          }  
         
         header('location: ../listaProdutos.php');
-    }
+
+    };
+
+    $SqlFornecedor = "SELECT * FROM fornecedor";
+    $ResultFornecedor = mysqli_query($conn, $SqlFornecedor);
 
 ?>
 
 <head>
     <link rel="stylesheet" href="../assets/css/formulario.css">
+    <link rel="stylesheet" href="../assets/css/selectOption.css">
 </head>
 <body>
     <div class="container">
@@ -57,6 +64,20 @@
                         <label for="qtd_estoque" class="labelInput">Quantidade em estoque</label>
                     </div>
                     <br><br>
+                    <div class="custom-select">
+                        <label for="preco" class="labelInput">Fornecedor deste produto</label>
+                         <br>
+                        <select name="fornecedor">
+                        <option>Selecione um fornecedor</option>
+                        <?php                        
+                            while($Row_ResultFornecedor = mysqli_fetch_assoc($ResultFornecedor)){ ?>
+                                <option class="comBoxTeste" value="<?php echo $Row_ResultFornecedor['id']; ?>"><?php echo $Row_ResultFornecedor['razao_social']; ?>
+                                </option> <?php
+                            }
+                        ?>
+                        </select>
+                    </div>
+                    <br><br>
                     <input class="btn" type="submit" name="submit" id="submit" value="Cadastrar produto">
                     </input>
                 </fieldset>
@@ -64,3 +85,4 @@
         </div>
     </div>
 </body>
+<script src="../assets/js/formProduto.js"></script>

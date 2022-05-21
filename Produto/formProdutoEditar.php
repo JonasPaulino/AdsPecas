@@ -14,6 +14,7 @@
                 $descricao      = $user_data['descricao'];
                 $preco          = $user_data['preco'];
                 $qtd_estoque    = $user_data['qtd_estoque'];
+                $id_fornecedor  = $user_data['id_fornecedor'];
             }
         }
         else
@@ -25,10 +26,14 @@
     {
         header('Location: ../listaProdutos.php');
     }
+
+    $SqlFornecedor = "SELECT * FROM fornecedor";
+    $ResultFornecedor = mysqli_query($conn, $SqlFornecedor);
 ?>
 
 <head>
     <link rel="stylesheet" href="../assets/css/formulario.css">
+    <link rel="stylesheet" href="../assets/css/selectOption.css">
 </head>
 <body>
     <div class="container">
@@ -61,6 +66,20 @@
                         <label for="qtd_estoque" class="labelInput">Quantidade em estoque</label>
                     </div>
                     <br><br>
+                    <div class="custom-select">
+                        <label for="preco" style="font-size: 12px;color: dodgerblue;" class="labelInput">Fornecedor deste produto</label>
+                         <br>
+                        <select name="Fornecedor">
+                        <option>Selecione um fornecedor</option>
+                        <?php                        
+                            while($Row_ResultFornecedor = mysqli_fetch_assoc($ResultFornecedor)){ ?>                                
+                                <option value="<?php echo $Row_ResultFornecedor['id']; ?>" <?php if($Row_ResultFornecedor['id'] == $id_fornecedor){ echo "selected";}?>><?php echo $Row_ResultFornecedor['razao_social']; ?>
+                                </option> <?php
+                            }
+                        ?>
+                        </select>
+                    </div>
+                    <br><br>
 				<input type="hidden" name="id" value=<?php echo $id;?>>
                 <input class="btn" type="submit" name="update" id="update" value="Confirmar alterações">
             </fieldset>
@@ -68,3 +87,4 @@
         </div>
     </div>
 </body>
+<script src="../assets/js/formProduto.js"></script>

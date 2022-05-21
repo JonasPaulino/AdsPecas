@@ -21,15 +21,6 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `produto` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(200) NOT NULL,
-  `preco` decimal(12,2) DEFAULT NULL,
-  `qtd_estoque` decimal(12,2) DEFAULT NULL,
-  `id_fornecedor` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
 CREATE TABLE `fornecedor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `razao_social` varchar(100) DEFAULT NULL,
@@ -38,4 +29,15 @@ CREATE TABLE `fornecedor` (
   `endereco` varchar(250) DEFAULT NULL,
   `cpf_cnpj` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `produto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(200) NOT NULL,
+  `preco` decimal(12,2) DEFAULT NULL,
+  `qtd_estoque` decimal(12,2) DEFAULT NULL,
+  `id_fornecedor` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `FK_FornecedorProduto` FOREIGN KEY (`id_fornecedor`)
+  REFERENCES `fornecedor`(`id`)
 );
